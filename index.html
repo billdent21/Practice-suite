@@ -673,14 +673,14 @@ input:focus{border-color:var(--accent);}
   <div class="header-top">
     <div class="app-title">Practice<em>Income</em></div>
     <div class="header-actions">
-      <button class="hbtn green" onclick="exportCSV()">⬇ CSV</button>
+      <button class="hbtn green" onclick="_inc_exportCSV()">⬇ CSV</button>
     </div>
   </div>
   <div class="nav-tabs">
-    <button class="nav-tab active" onclick="showPage('daily',this)">Daily</button>
-    <button class="nav-tab" onclick="showPage('monthly',this)">Monthly</button>
-    <button class="nav-tab" onclick="showPage('yearly',this)">Yearly</button>
-    <button class="nav-tab" onclick="showPage('charts',this)">Charts</button>
+    <button class="nav-tab active" onclick="_inc_showPage('daily',this)">Daily</button>
+    <button class="nav-tab" onclick="_inc_showPage('monthly',this)">Monthly</button>
+    <button class="nav-tab" onclick="_inc_showPage('yearly',this)">Yearly</button>
+    <button class="nav-tab" onclick="_inc_showPage('charts',this)">Charts</button>
   </div>
 </header>
 
@@ -688,9 +688,9 @@ input:focus{border-color:var(--accent);}
 <div class="page active" id="page-daily">
   <div style="margin-bottom:12px;margin-top:2px;">
     <div class="month-nav">
-      <button class="mnav-btn" onclick="shiftMonth(-1)">‹</button>
+      <button class="mnav-btn" onclick="_inc_shiftMonth(-1)">‹</button>
       <div class="mnav-label" id="dailyMonthLabel"></div>
-      <button class="mnav-btn" onclick="shiftMonth(1)">›</button>
+      <button class="mnav-btn" onclick="_inc_shiftMonth(1)">›</button>
     </div>
   </div>
   <div class="stats-grid">
@@ -711,8 +711,8 @@ input:focus{border-color:var(--accent);}
 <!-- YEARLY PAGE -->
 <div class="page" id="page-yearly">
   <div class="year-toggle">
-    <button class="ytbtn active" id="yrCalBtn" onclick="setYearView('cal',this)">Calendar Years</button>
-    <button class="ytbtn" id="yrPracBtn" onclick="setYearView('prac',this)">Practice Years</button>
+    <button class="ytbtn active" id="yrCalBtn" onclick="_inc_setYearView('cal',this)">Calendar Years</button>
+    <button class="ytbtn" id="yrPracBtn" onclick="_inc_setYearView('prac',this)">Practice Years</button>
   </div>
   <div id="yearlyContent"></div>
 </div>
@@ -722,7 +722,7 @@ input:focus{border-color:var(--accent);}
   <div id="chartsContent"></div>
 </div>
 
-<button class="fab" onclick="openModal()">＋ Record Day</button>
+<button class="fab" onclick="_inc_openModal()">＋ Record Day</button>
 
 <!-- ADD MODAL -->
 <div class="modal-overlay" id="modalOverlay">
@@ -730,14 +730,14 @@ input:focus{border-color:var(--accent);}
     <div class="modal-title">Record a Day</div>
     <div class="form-group"><label>Date</label><input type="date" id="entryDate"/></div>
     <div class="amount-row">
-      <div class="form-group"><label>💵 Cash (€)</label><input type="number" id="entryCash" class="cash-input" placeholder="0.00" min="0" step="0.01" oninput="updatePreview()"/></div>
-      <div class="form-group"><label>🏦 Bank (€)</label><input type="number" id="entryBank" class="bank-input" placeholder="0.00" min="0" step="0.01" oninput="updatePreview()"/></div>
+      <div class="form-group"><label>💵 Cash (€)</label><input type="number" id="entryCash" class="cash-input" placeholder="0.00" min="0" step="0.01" oninput="_inc_updatePreview()"/></div>
+      <div class="form-group"><label>🏦 Bank (€)</label><input type="number" id="entryBank" class="bank-input" placeholder="0.00" min="0" step="0.01" oninput="_inc_updatePreview()"/></div>
     </div>
     <div class="form-group"><label>Day Total</label>
       <div class="day-total-preview"><span>Cash + Bank</span><span id="previewTotal">€0.00</span></div>
     </div>
-    <button class="submit-btn" onclick="saveEntry()">Save Entry</button>
-    <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+    <button class="submit-btn" onclick="_inc_saveEntry()">Save Entry</button>
+    <button class="cancel-btn" onclick="_inc_closeModal()">Cancel</button>
   </div>
 </div>
 </div>
@@ -748,27 +748,27 @@ input:focus{border-color:var(--accent);}
   <div class="header-top">
     <div class="app-title">Practice<em>Patients</em></div>
     <div style="display:flex;gap:6px;">
-      <button class="hbtn" onclick="openBulk()" style="color:var(--r2b);">✏️ Bulk</button>
-      <button class="hbtn blue" onclick="exportCSV()">⬇ CSV</button>
+      <button class="hbtn" onclick="_pat_openBulk()" style="color:var(--r2b);">✏️ Bulk</button>
+      <button class="hbtn blue" onclick="_pat_exportCSV()">⬇ CSV</button>
       <button class="hbtn" onclick="document.getElementById('csvImportInput').click()" style="color:var(--rdis);">⬆ Import</button>
-      <input type="file" id="csvImportInput" accept=".csv" style="display:none;" onchange="importCSV(event)"/>
+      <input type="file" id="csvImportInput" accept=".csv" style="display:none;" onchange="_pat_importCSV(event)"/>
     </div>
   </div>
   <div class="nav-tabs">
-    <button class="nav-tab active" onclick="showPage('daily',this)">Daily</button>
-    <button class="nav-tab" onclick="showPage('monthly',this)">Monthly</button>
-    <button class="nav-tab" onclick="showPage('yearly',this)">Yearly</button>
-    <button class="nav-tab" onclick="showPage('active',this)">Active</button>
-    <button class="nav-tab" onclick="showPage('charts',this)">Charts</button>
+    <button class="nav-tab active" onclick="_pat_showPage('daily',this)">Daily</button>
+    <button class="nav-tab" onclick="_pat_showPage('monthly',this)">Monthly</button>
+    <button class="nav-tab" onclick="_pat_showPage('yearly',this)">Yearly</button>
+    <button class="nav-tab" onclick="_pat_showPage('active',this)">Active</button>
+    <button class="nav-tab" onclick="_pat_showPage('charts',this)">Charts</button>
   </div>
 </header>
 
 <!-- DAILY PAGE -->
 <div class="page active" id="page-daily">
   <div class="month-nav">
-    <button class="mnav-btn" onclick="shiftMonth(-1)">‹</button>
+    <button class="mnav-btn" onclick="_pat_shiftMonth(-1)">‹</button>
     <div class="mnav-label" id="dailyMonthLabel"></div>
-    <button class="mnav-btn" onclick="shiftMonth(1)">›</button>
+    <button class="mnav-btn" onclick="_pat_shiftMonth(1)">›</button>
   </div>
   <!-- Summary cards -->
   <div class="stats-grid">
@@ -799,8 +799,8 @@ input:focus{border-color:var(--accent);}
 <!-- MONTHLY PAGE -->
 <div class="page" id="page-monthly">
   <div class="cat-toggle" style="margin-bottom:14px;">
-    <button class="ctbtn active-new" id="mCatNew" onclick="setMonthlyCat('new',this)">🆕 New Patients</button>
-    <button class="ctbtn" id="mCatFin" onclick="setMonthlyCat('fin',this)">🎓 Finished</button>
+    <button class="ctbtn active-new" id="mCatNew" onclick="_pat_setMonthlyCat('new',this)">🆕 New Patients</button>
+    <button class="ctbtn" id="mCatFin" onclick="_pat_setMonthlyCat('fin',this)">🎓 Finished</button>
   </div>
   <div class="year-toggle" id="monthlyYearToggle"></div>
   <div id="monthlyContent"></div>
@@ -809,12 +809,12 @@ input:focus{border-color:var(--accent);}
 <!-- YEARLY PAGE -->
 <div class="page" id="page-yearly">
   <div class="cat-toggle" style="margin-bottom:14px;">
-    <button class="ctbtn active-new" id="yCatNew" onclick="setYearlyCat('new',this)">🆕 New Patients</button>
-    <button class="ctbtn" id="yCatFin" onclick="setYearlyCat('fin',this)">🎓 Finished</button>
+    <button class="ctbtn active-new" id="yCatNew" onclick="_pat_setYearlyCat('new',this)">🆕 New Patients</button>
+    <button class="ctbtn" id="yCatFin" onclick="_pat_setYearlyCat('fin',this)">🎓 Finished</button>
   </div>
   <div class="year-toggle">
-    <button class="ytbtn active" id="yrCalBtn" onclick="setYearView('cal',this)">Calendar Years</button>
-    <button class="ytbtn" id="yrPracBtn" onclick="setYearView('prac',this)">Practice Years</button>
+    <button class="ytbtn active" id="yrCalBtn" onclick="_pat_setYearView('cal',this)">Calendar Years</button>
+    <button class="ytbtn" id="yrPracBtn" onclick="_pat_setYearView('prac',this)">Practice Years</button>
   </div>
   <div id="yearlyContent"></div>
 </div>
@@ -841,9 +841,9 @@ input:focus{border-color:var(--accent);}
     <div class="ctitle">Cumulative Active Patients</div>
     <div class="csub">Running total: new patients accumulated minus finished</div>
     <div class="range-row" id="activeRangeRow">
-      <button class="rbtn active" onclick="setActiveN(12,this)">12M</button>
-      <button class="rbtn" onclick="setActiveN(24,this)">24M</button>
-      <button class="rbtn" onclick="setActiveN(9999,this)">All</button>
+      <button class="rbtn active" onclick="_pat_setActiveN(12,this)">12M</button>
+      <button class="rbtn" onclick="_pat_setActiveN(24,this)">24M</button>
+      <button class="rbtn" onclick="_pat_setActiveN(9999,this)">All</button>
     </div>
     <canvas id="chartActive" height="220"></canvas>
   </div>
@@ -852,9 +852,9 @@ input:focus{border-color:var(--accent);}
     <div class="ctitle">Net Patients per Month</div>
     <div class="csub">New patients minus finished patients each month</div>
     <div class="range-row" id="netRangeRow">
-      <button class="rbtn active" onclick="setNetN(12,this)">12M</button>
-      <button class="rbtn" onclick="setNetN(24,this)">24M</button>
-      <button class="rbtn" onclick="setNetN(9999,this)">All</button>
+      <button class="rbtn active" onclick="_pat_setNetN(12,this)">12M</button>
+      <button class="rbtn" onclick="_pat_setNetN(24,this)">24M</button>
+      <button class="rbtn" onclick="_pat_setNetN(9999,this)">All</button>
     </div>
     <canvas id="chartNet" height="200"></canvas>
   </div>
@@ -865,7 +865,7 @@ input:focus{border-color:var(--accent);}
   <div id="chartsContent"></div>
 </div>
 
-<button class="fab" onclick="openModal()">＋ Record Day</button>
+<button class="fab" onclick="_pat_openModal()">＋ Record Day</button>
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay">
@@ -875,10 +875,10 @@ input:focus{border-color:var(--accent);}
 
     <div class="sec-title" style="margin-top:4px;">🆕 New Patients</div>
     <div class="count-grid">
-      <div class="count-field brace form-group"><label>🦷 Braces</label><input type="number" id="eBrace" min="0" value="0" oninput="updatePreview()"/></div>
-      <div class="count-field remov form-group"><label>🔵 Removable</label><input type="number" id="eRemov" min="0" value="0" oninput="updatePreview()"/></div>
-      <div class="count-field align form-group"><label>✨ Aligners</label><input type="number" id="eAlign" min="0" value="0" oninput="updatePreview()"/></div>
-      <div class="count-field trans form-group"><label>🔄 Transfers</label><input type="number" id="eTrans" min="0" value="0" oninput="updatePreview()"/></div>
+      <div class="count-field brace form-group"><label>🦷 Braces</label><input type="number" id="eBrace" min="0" value="0" oninput="_pat_updatePreview()"/></div>
+      <div class="count-field remov form-group"><label>🔵 Removable</label><input type="number" id="eRemov" min="0" value="0" oninput="_pat_updatePreview()"/></div>
+      <div class="count-field align form-group"><label>✨ Aligners</label><input type="number" id="eAlign" min="0" value="0" oninput="_pat_updatePreview()"/></div>
+      <div class="count-field trans form-group"><label>🔄 Transfers</label><input type="number" id="eTrans" min="0" value="0" oninput="_pat_updatePreview()"/></div>
     </div>
     <div class="form-group">
       <label>New Total</label>
@@ -888,19 +888,19 @@ input:focus{border-color:var(--accent);}
     <div class="sec-title">🎓 Finished Patients</div>
     <div class="count-field fin form-group" style="max-width:160px;">
       <label>Count</label>
-      <input type="number" id="eFin" min="0" value="0" oninput="updatePreview()"/>
+      <input type="number" id="eFin" min="0" value="0" oninput="_pat_updatePreview()"/>
     </div>
 
     <div class="sec-title" style="margin-top:4px;">🔵 Removable → Braces</div>
     <div class="count-field r2b form-group" style="max-width:160px;">
       <label>🔵→🦷 To Braces</label>
-      <input type="number" id="eR2B" min="0" value="0" oninput="updatePreview()"/>
+      <input type="number" id="eR2B" min="0" value="0" oninput="_pat_updatePreview()"/>
     </div>
     <div style="font-size:11px;color:var(--muted);margin-bottom:12px;line-height:1.6;background:var(--surface2);border-radius:8px;padding:10px;">
       <b style="color:var(--r2b);">→ Braces:</b> adds to braces count, removable phase complete (not counted as fully finished)
     </div>
-    <button class="submit-btn" onclick="saveEntry()">Save Entry</button>
-    <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+    <button class="submit-btn" onclick="_pat_saveEntry()">Save Entry</button>
+    <button class="cancel-btn" onclick="_pat_closeModal()">Cancel</button>
   </div>
 </div>
 
@@ -929,8 +929,8 @@ input:focus{border-color:var(--accent);}
         <tbody id="bulkTableBody"></tbody>
       </table>
     </div>
-    <button class="submit-btn" onclick="saveBulk()" style="margin-top:14px;">Save All Changes</button>
-    <button class="cancel-btn" onclick="closeBulk()">Cancel</button>
+    <button class="submit-btn" onclick="_pat_saveBulk()" style="margin-top:14px;">Save All Changes</button>
+    <button class="cancel-btn" onclick="_pat_closeBulk()">Cancel</button>
   </div>
 </div>
 </div>
@@ -942,17 +942,17 @@ input:focus{border-color:var(--accent);}
     <div class="app-title">spend<span>wise</span></div>
     <div class="header-actions">
       <div class="month-selector">
-        <select id="monthSelect" onchange="onMonthChange()"></select>
+        <select id="monthSelect" onchange="_exp_onMonthChange()"></select>
       </div>
-      <button class="icon-btn export-btn" onclick="exportCSV()">⬇ CSV</button>
-      <button class="icon-btn" onclick="openManage()" style="font-size:18px;padding:5px 9px;">⚙️</button>
+      <button class="icon-btn export-btn" onclick="_exp_exportCSV()">⬇ CSV</button>
+      <button class="icon-btn" onclick="_exp_openManage()" style="font-size:18px;padding:5px 9px;">⚙️</button>
     </div>
   </div>
   <div class="nav-tabs">
-    <button class="nav-tab active" onclick="showPage('overview',this)">Overview</button>
-    <button class="nav-tab" onclick="showPage('charts',this)">📊 Charts</button>
-    <button class="nav-tab" onclick="showPage('business',this)">💼 Business</button>
-    <button class="nav-tab" onclick="showPage('personal',this)">🏠 Personal</button>
+    <button class="nav-tab active" onclick="_exp_showPage('overview',this)">Overview</button>
+    <button class="nav-tab" onclick="_exp_showPage('charts',this)">📊 Charts</button>
+    <button class="nav-tab" onclick="_exp_showPage('business',this)">💼 Business</button>
+    <button class="nav-tab" onclick="_exp_showPage('personal',this)">🏠 Personal</button>
   </div>
 </header>
 
@@ -1004,9 +1004,9 @@ input:focus{border-color:var(--accent);}
       <div class="ctitle">Monthly Trend</div>
       <div class="csub">Total spending over the last months</div>
       <div class="chart-range-btns">
-        <button class="range-btn active" onclick="setTrendRange(3,this)">3M</button>
-        <button class="range-btn" onclick="setTrendRange(6,this)">6M</button>
-        <button class="range-btn" onclick="setTrendRange(12,this)">12M</button>
+        <button class="range-btn active" onclick="_exp_setTrendRange(3,this)">3M</button>
+        <button class="range-btn" onclick="_exp_setTrendRange(6,this)">6M</button>
+        <button class="range-btn" onclick="_exp_setTrendRange(12,this)">12M</button>
       </div>
       <div class="canvas-wrap"><canvas id="chartTrend" height="180"></canvas></div>
     </div>
@@ -1016,8 +1016,8 @@ input:focus{border-color:var(--accent);}
       <div class="ctitle">Business vs Personal</div>
       <div class="csub">Monthly comparison over time</div>
       <div class="chart-range-btns">
-        <button class="range-btn active" onclick="setStackRange(6,this)">6M</button>
-        <button class="range-btn" onclick="setStackRange(12,this)">12M</button>
+        <button class="range-btn active" onclick="_exp_setStackRange(6,this)">6M</button>
+        <button class="range-btn" onclick="_exp_setStackRange(12,this)">12M</button>
       </div>
       <div class="canvas-wrap"><canvas id="chartStack" height="200"></canvas></div>
     </div>
@@ -1048,15 +1048,15 @@ input:focus{border-color:var(--accent);}
   <div class="expenses-list" id="listPers"></div>
 </div>
 
-<button class="fab" onclick="openModal()">＋ Add Expense</button>
+<button class="fab" onclick="_exp_openModal()">＋ Add Expense</button>
 
 <!-- ADD EXPENSE MODAL -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div class="modal-title">New Expense</div>
     <div class="cat-toggle">
-      <button class="cat-btn active-biz" id="btnBiz" onclick="selectCat('business')">💼 Business</button>
-      <button class="cat-btn" id="btnPers" onclick="selectCat('personal')">🏠 Personal</button>
+      <button class="cat-btn active-biz" id="btnBiz" onclick="_exp_selectCat('business')">💼 Business</button>
+      <button class="cat-btn" id="btnPers" onclick="_exp_selectCat('personal')">🏠 Personal</button>
     </div>
     <div class="form-group"><label>Subcategory</label><select id="subcatSelect"></select></div>
     <div class="form-row">
@@ -1064,8 +1064,8 @@ input:focus{border-color:var(--accent);}
       <div class="form-group"><label>Date</label><input type="date" id="dateInput"/></div>
     </div>
     <div class="form-group"><label>Description</label><input type="text" id="descInput" placeholder="e.g. Lab invoice, Staff lunch..."/></div>
-    <button class="submit-btn" onclick="addExpense()">Add Expense</button>
-    <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+    <button class="submit-btn" onclick="_exp_addExpense()">Add Expense</button>
+    <button class="cancel-btn" onclick="_exp_closeModal()">Cancel</button>
   </div>
 </div>
 
@@ -1074,19 +1074,19 @@ input:focus{border-color:var(--accent);}
   <div class="modal">
     <div class="modal-title">Manage Categories</div>
     <div class="manage-cat-tabs">
-      <button class="manage-cat-tab active-biz" id="mTabBiz" onclick="switchManageCat('business')">💼 Business</button>
-      <button class="manage-cat-tab" id="mTabPers" onclick="switchManageCat('personal')">🏠 Personal</button>
+      <button class="manage-cat-tab active-biz" id="mTabBiz" onclick="_exp_switchManageCat('business')">💼 Business</button>
+      <button class="manage-cat-tab" id="mTabPers" onclick="_exp_switchManageCat('personal')">🏠 Personal</button>
     </div>
     <p class="manage-hint">Tap icon to change · Edit names inline · Drag ⠿ to reorder</p>
     <div class="subcat-list" id="subcatEditList"></div>
     <div class="add-row">
-      <button class="add-icon-btn" id="newIconBtn" onclick="openEmojiPicker('new')">➕</button>
+      <button class="add-icon-btn" id="newIconBtn" onclick="_exp_openEmojiPicker('new')">➕</button>
       <input type="text" id="newSubcatName" placeholder="New subcategory name..."/>
-      <button class="add-subcat-btn" onclick="addSubcat()">Add</button>
+      <button class="add-subcat-btn" onclick="_exp_addSubcat()">Add</button>
     </div>
-    <button class="save-cats-btn" onclick="saveCategories()">✓ Save Changes</button>
-    <button class="cancel-btn" onclick="closeManage()">Cancel</button>
-    <span class="reset-link" onclick="resetCategories()">Reset to defaults</span>
+    <button class="save-cats-btn" onclick="_exp_saveCategories()">✓ Save Changes</button>
+    <button class="cancel-btn" onclick="_exp_closeManage()">Cancel</button>
+    <span class="reset-link" onclick="_exp_resetCategories()">Reset to defaults</span>
   </div>
 </div>
 
@@ -1706,6 +1706,25 @@ function exportCSV() {
 document.getElementById('modalOverlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
 
 renderDaily();
+  window._inc_closeModal = typeof closeModal!=="undefined" ? closeModal : undefined;
+  window._inc_deleteEntry = typeof deleteEntry!=="undefined" ? deleteEntry : undefined;
+  window._inc_exportCSV = typeof exportCSV!=="undefined" ? exportCSV : undefined;
+  window._inc_onMonthChange = typeof onMonthChange!=="undefined" ? onMonthChange : undefined;
+  window._inc_openModal = typeof openModal!=="undefined" ? openModal : undefined;
+  window._inc_renderAll = typeof renderAll!=="undefined" ? renderAll : undefined;
+  window._inc_saveEntry = typeof saveEntry!=="undefined" ? saveEntry : undefined;
+  window._inc_setCompareMonth = typeof setCompareMonth!=="undefined" ? setCompareMonth : undefined;
+  window._inc_setMonthlyFilter = typeof setMonthlyFilter!=="undefined" ? setMonthlyFilter : undefined;
+  window._inc_setPracYearSel = typeof setPracYearSel!=="undefined" ? setPracYearSel : undefined;
+  window._inc_setSplitN = typeof setSplitN!=="undefined" ? setSplitN : undefined;
+  window._inc_setStackRange = typeof setStackRange!=="undefined" ? setStackRange : undefined;
+  window._inc_setTrendN = typeof setTrendN!=="undefined" ? setTrendN : undefined;
+  window._inc_setTrendRange = typeof setTrendRange!=="undefined" ? setTrendRange : undefined;
+  window._inc_setYearSel = typeof setYearSel!=="undefined" ? setYearSel : undefined;
+  window._inc_setYearView = typeof setYearView!=="undefined" ? setYearView : undefined;
+  window._inc_shiftMonth = typeof shiftMonth!=="undefined" ? shiftMonth : undefined;
+  window._inc_showPage = typeof showPage!=="undefined" ? showPage : undefined;
+  window._inc_updatePreview = typeof updatePreview!=="undefined" ? updatePreview : undefined;
 window.__incomeInit = function() {
   // rebuild month selector
   const ms = document.getElementById('monthSelect');
@@ -2718,6 +2737,40 @@ document.getElementById('modalOverlay').addEventListener('click',function(e){if(
 document.getElementById('bulkOverlay').addEventListener('click',function(e){if(e.target===this)closeBulk();});
 
 renderDaily();
+  window._pat_addSubcat = typeof addSubcat!=="undefined" ? addSubcat : undefined;
+  window._pat_closeBulk = typeof closeBulk!=="undefined" ? closeBulk : undefined;
+  window._pat_closeManage = typeof closeManage!=="undefined" ? closeManage : undefined;
+  window._pat_closeModal = typeof closeModal!=="undefined" ? closeModal : undefined;
+  window._pat_deleteEntry = typeof deleteEntry!=="undefined" ? deleteEntry : undefined;
+  window._pat_editEntry = typeof editEntry!=="undefined" ? editEntry : undefined;
+  window._pat_exportCSV = typeof exportCSV!=="undefined" ? exportCSV : undefined;
+  window._pat_importCSV = typeof importCSV!=="undefined" ? importCSV : undefined;
+  window._pat_openBulk = typeof openBulk!=="undefined" ? openBulk : undefined;
+  window._pat_openEmojiPicker = typeof openEmojiPicker!=="undefined" ? openEmojiPicker : undefined;
+  window._pat_openManage = typeof openManage!=="undefined" ? openManage : undefined;
+  window._pat_openModal = typeof openModal!=="undefined" ? openModal : undefined;
+  window._pat_pickEmoji = typeof pickEmoji!=="undefined" ? pickEmoji : undefined;
+  window._pat_removeSubcat = typeof removeSubcat!=="undefined" ? removeSubcat : undefined;
+  window._pat_resetCategories = typeof resetCategories!=="undefined" ? resetCategories : undefined;
+  window._pat_saveBulk = typeof saveBulk!=="undefined" ? saveBulk : undefined;
+  window._pat_saveCategories = typeof saveCategories!=="undefined" ? saveCategories : undefined;
+  window._pat_saveEntry = typeof saveEntry!=="undefined" ? saveEntry : undefined;
+  window._pat_setActiveN = typeof setActiveN!=="undefined" ? setActiveN : undefined;
+  window._pat_setCompareMonth = typeof setCompareMonth!=="undefined" ? setCompareMonth : undefined;
+  window._pat_setMonthlyCat = typeof setMonthlyCat!=="undefined" ? setMonthlyCat : undefined;
+  window._pat_setMonthlyFilter = typeof setMonthlyFilter!=="undefined" ? setMonthlyFilter : undefined;
+  window._pat_setNetN = typeof setNetN!=="undefined" ? setNetN : undefined;
+  window._pat_setPracYearSel = typeof setPracYearSel!=="undefined" ? setPracYearSel : undefined;
+  window._pat_setTrendN = typeof setTrendN!=="undefined" ? setTrendN : undefined;
+  window._pat_setTypeN = typeof setTypeN!=="undefined" ? setTypeN : undefined;
+  window._pat_setYearSel = typeof setYearSel!=="undefined" ? setYearSel : undefined;
+  window._pat_setYearView = typeof setYearView!=="undefined" ? setYearView : undefined;
+  window._pat_setYearlyCat = typeof setYearlyCat!=="undefined" ? setYearlyCat : undefined;
+  window._pat_shiftMonth = typeof shiftMonth!=="undefined" ? shiftMonth : undefined;
+  window._pat_showPage = typeof showPage!=="undefined" ? showPage : undefined;
+  window._pat_switchManageCat = typeof switchManageCat!=="undefined" ? switchManageCat : undefined;
+  window._pat_updateFinTotal = typeof updateFinTotal!=="undefined" ? updateFinTotal : undefined;
+  window._pat_updatePreview = typeof updatePreview!=="undefined" ? updatePreview : undefined;
 window.__patientsInit=function(){renderDaily();};
 })();
 
@@ -3041,6 +3094,29 @@ renderAll();
 
 // ── PWA: inject manifest & register service worker ──
 
+  window._exp_addExpense = typeof addExpense!=="undefined" ? addExpense : undefined;
+  window._exp_addSubcat = typeof addSubcat!=="undefined" ? addSubcat : undefined;
+  window._exp_closeManage = typeof closeManage!=="undefined" ? closeManage : undefined;
+  window._exp_closeModal = typeof closeModal!=="undefined" ? closeModal : undefined;
+  window._exp_deleteExpense = typeof deleteExpense!=="undefined" ? deleteExpense : undefined;
+  window._exp_exportCSV = typeof exportCSV!=="undefined" ? exportCSV : undefined;
+  window._exp_onMonthChange = typeof onMonthChange!=="undefined" ? onMonthChange : undefined;
+  window._exp_openEmojiPicker = typeof openEmojiPicker!=="undefined" ? openEmojiPicker : undefined;
+  window._exp_openManage = typeof openManage!=="undefined" ? openManage : undefined;
+  window._exp_openModal = typeof openModal!=="undefined" ? openModal : undefined;
+  window._exp_pickEmoji = typeof pickEmoji!=="undefined" ? pickEmoji : undefined;
+  window._exp_removeSubcat = typeof removeSubcat!=="undefined" ? removeSubcat : undefined;
+  window._exp_resetCategories = typeof resetCategories!=="undefined" ? resetCategories : undefined;
+  window._exp_saveCategories = typeof saveCategories!=="undefined" ? saveCategories : undefined;
+  window._exp_selectCat = typeof selectCat!=="undefined" ? selectCat : undefined;
+  window._exp_setCompareMonth = typeof setCompareMonth!=="undefined" ? setCompareMonth : undefined;
+  window._exp_setPracYearSel = typeof setPracYearSel!=="undefined" ? setPracYearSel : undefined;
+  window._exp_setStackRange = typeof setStackRange!=="undefined" ? setStackRange : undefined;
+  window._exp_setTab = typeof setTab!=="undefined" ? setTab : undefined;
+  window._exp_setTrendRange = typeof setTrendRange!=="undefined" ? setTrendRange : undefined;
+  window._exp_setYearSel = typeof setYearSel!=="undefined" ? setYearSel : undefined;
+  window._exp_showPage = typeof showPage!=="undefined" ? showPage : undefined;
+  window._exp_switchManageCat = typeof switchManageCat!=="undefined" ? switchManageCat : undefined;
 window.__expensesInit = function() {
   selectCat('business');
   renderAll();
