@@ -1,2 +1,2 @@
-# Practice-suite
+# Practice
 Practice app
